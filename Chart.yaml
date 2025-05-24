@@ -1,0 +1,66 @@
+apiVersion: v2
+name: nginx # chart name
+version: 1.0.0 # chart version
+description: This is nginx deployment
+appVersion: 1.2.0 # nginx app version
+
+
+# 1. helm is a package manager to deploy opensource applications or custom applications into kubernetes
+# 2. templatise manifest files
+
+# git clone https://github.com/DAWS-2025-82S/22-helm.git
+# cd helm
+# helm install <chart-name> .
+
+# helm install nginx .
+
+# kubectl get pods
+# kubectl get svc
+
+# Helm Commands
+# -------------
+# helm install <chart-name> .
+
+# helm install nginx .  ---- for the first time
+
+# helm upgrade nginx .  ---- from second time
+
+# helm history nginx
+
+# helm rollback <release> <revision>                        # Roll back a release to a specific revision
+
+# helm rollback nginx 1
+
+# helm history nginx
+
+# In CI/CD
+
+# helm status nginx
+# echo $?
+
+# helm upgrade nginx --description "Upgrading image version" .
+
+# To install any helm package repo needs to be added first similar to yum/dnf repo
+
+# /etc/yum.repos.d/
+# dnf install nginx -y 
+
+# AWS ebs csi driver can be installed using helm also not only with kustomize
+
+# helm repo add aws-ebs-csi-driver https://kubernetes-sigs.github.io/aws-ebs-csi-driver
+# helm repo update
+
+# helm upgrade --install aws-ebs-csi-driver \
+#     --namespace kube-system \
+#     aws-ebs-csi-driver/aws-ebs-csi-driver
+	
+# kubectl get pods -n kube-system
+
+# helm list
+# helm list -n kube-system
+
+# helm uninstall aws-ebs-csi-driver -n kube-system
+
+# kubectl get pods -n kube-system
+
+# helm uninstall nginx
